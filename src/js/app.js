@@ -29,18 +29,45 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  //Condicion para cambiar nombre
+  let name1 = variables.name === null ? `Tu nombre` : variables.name;
+  //Condicion para apellido
+  let lastName1 =
+    variables.lastName === null ? `Tu apellido` : variables.lastName;
+  //Unir nombre y apellido
+  let fullname = `${name1} ${lastName1}`;
+
+  //posicion de social media
+  let posicionSocionMedia = variables.socialMediaPosition;
+
+  //link redes sociales
+  let twitter1 = variables.twitter;
+  let github1 = variables.github;
+  let linkedin1 = variables.linkedin;
+  let instagram1 = variables.instagram;
+
+  // rol
+  const role1 = variables.role === null ? `Cargo` : variables.role;
+
+  // pais
+  const country1 = variables.country === null ? `Pais` : variables.country;
+
+  // ciudad
+  const city1 = variables.city === null ? `Ciudad` : variables.city;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${fullname}</h1>
+          <h2>${role1}</h2>
+          <h3>${city1}, ${country1}</h3>
+
+          <ul class="${posicionSocionMedia}">
+            <li><a href="${twitter1}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${github1}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${linkedin1}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${instagram1}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -58,7 +85,7 @@ window.onload = function() {
     // this is the url for the profile avatar
     avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
     // social media bar position (position-left or position-right)
-    socialMediaPosition: "position-right",
+    socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
     github: null,
