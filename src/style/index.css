@@ -1,6 +1,10 @@
 .filters {
-  background: white;
+  margin-top: 20px;
+  background: #2c3e50;
+  border: 1px solid #171919;
+  border-radius: 10px;
   width: 100%;
+  padding: 10px;
 }
 .filters li {
   display: inline-block;
@@ -11,6 +15,7 @@
   display: block;
   font-size: 12px;
   font-weight: 900;
+  color: #ecf0f1;
 }
 .filters li input {
   width: 100%;
